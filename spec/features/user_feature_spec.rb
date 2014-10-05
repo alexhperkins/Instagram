@@ -1,6 +1,10 @@
 require "rails_helper"
 
 describe "pictures" do
+
+	def create_test_picture
+		Picture.create(title: ' Eagle ', description:' My last project ')
+	end
   
   context "No pictures have been added" do 
 
@@ -14,7 +18,7 @@ describe "pictures" do
 
   	it "when a picture has been added" do
   		
-			Picture.create(title: ' Eagle ', description:' My last project ')
+			create_test_picture
 
 			visit '/'
 
@@ -49,7 +53,7 @@ describe "pictures" do
 
 		it "The user can update a picture" do
 			
-			Picture.create(title:'Eagle',description:'My last project')
+			create_test_picture
 
 			visit '/'
 
@@ -64,6 +68,25 @@ describe "pictures" do
 			expect(page).to have_content('Just a project')
 			expect(current_path).to eq('/pictures')
 		end
+	end
+
+	context 'Deleting a picture' do
+		
+		it "The user can delete a picture" do
+			
+			create_test_picture
+
+			visit('/')
+
+			click_link 'Delete'
+
+			expect(page).to have_content('Eagle has been deleted')
+
+			expect(current_path).to eq('/pictures')
+			
+		end
+
+
 	end
 
 end

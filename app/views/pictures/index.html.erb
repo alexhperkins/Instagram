@@ -7,6 +7,14 @@
 <body>
 	
 	<div class="wrapper">
+	
+	<% if flash[:notice] %>
+		<div class="errors">
+			<ul>
+				<li class="message"> <%= notice %> </li>
+			</ul>
+		</div>
+	<% end %>
 		
 		<h1>Instagram</h1>
 
@@ -21,6 +29,8 @@
 					<p>  <%= picture.description %> </p>
 
 					<%= link_to "Update Picture", edit_picture_path(picture) %>
+
+					<%= link_to "Delete", picture_path(picture), method: :delete %>
 
 				</section>
 			<% end %>
