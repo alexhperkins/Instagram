@@ -18,6 +18,7 @@ describe "pictures" do
 
 			visit '/'
 
+			expect(page).to have_content('Instagram')
 			expect(page).not_to have_content('No pictures yet')
 			expect(page).to have_content('Eagle')
 			expect(page).to have_content('My last project')
@@ -25,7 +26,7 @@ describe "pictures" do
   	end
   end
 
-  xcontext "Adding a picture" do
+  context "Adding a picture" do
 
   	it "can add a picture" do
 	  	
@@ -34,7 +35,13 @@ describe "pictures" do
 	  	click_link('Add a picture')
 
 	  	expect(current_path).to eq('/pictures/new')
-  		
+
+	  	# fill_in 'Title',       with: 'Eagle'
+	  	# fill_in 'Description', with: 'My last project'
+
+	  	# click_button 'Create Picture'
+
+	  	# expect(current_path).to eq('/')
   	end
 
   end

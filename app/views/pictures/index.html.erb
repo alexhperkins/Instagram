@@ -1,20 +1,35 @@
-<% if @pictures.any? %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Instagram</title>
+</head>
+<body>
 	
-	<% @pictures.each do | picture | %>
+	<div class="wrapper">
+		
+		<h1>Instagram</h1>
 
-		<section class="pic_box">
+		<% if @pictures.any? %>
 			
-			<h1> <%= picture.title %> </h1>
+			<% @pictures.each do | picture | %>
 
-			<p>  <%= picture.description %> </p>
+				<section class="pic_box">
+					
+					<h1> <%= picture.title %> </h1>
 
-		</section>
-	<% end %>
+					<p>  <%= picture.description %> </p>
 
-<% else %>
+				</section>
+			<% end %>
 
-	<p>No pictures yet</p>
+		<% else %>
 
-<% end %>
+			<p>No pictures yet</p>
 
-<%= link_to 'Add a picture', new_picture_path %>
+		<% end %>
+
+		<%= link_to 'Add a picture', new_picture_path %>
+	</div>	
+</body>
+</html>
