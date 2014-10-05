@@ -17,8 +17,7 @@ describe "pictures" do
   	end
 
   	it "when a picture has been added" do
-  		
-			create_test_picture
+  		create_test_picture
 
 			visit '/'
 
@@ -52,7 +51,6 @@ describe "pictures" do
 	context "Updating a picture" do
 
 		it "The user can update a picture" do
-			
 			create_test_picture
 
 			visit '/'
@@ -73,7 +71,6 @@ describe "pictures" do
 	context 'Deleting a picture' do
 		
 		it "The user can delete a picture" do
-			
 			create_test_picture
 
 			visit('/')
@@ -85,6 +82,20 @@ describe "pictures" do
 			expect(current_path).to eq('/pictures')
 			
 		end
+
+	context 'Showing a picture' do
+		
+		it "The user can see the picture in full page" do
+			create_test_picture
+
+			visit '/'
+
+			click_link 'Show Picture'
+
+			expect(page).to have_content('Eagle')
+			expect(current_path).to match(/pictures\/\d/)
+		end
+	end
 
 
 	end

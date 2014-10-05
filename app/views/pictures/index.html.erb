@@ -28,9 +28,11 @@
 
 					<p>  <%= picture.description %> </p>
 
-					<%= link_to "Update Picture", edit_picture_path(picture) %>
+					<%= link_to "Update Picture", edit_picture_path(picture)     %>
 
 					<%= link_to "Delete", picture_path(picture), method: :delete %>
+					
+					<%= link_to "Show Picture", picture_path(picture)            %>
 
 				</section>
 			<% end %>
