@@ -13,4 +13,8 @@ describe "pictures" do
   	end
   end
 
+  context "Adding a picture" do
+
+  end
+
 end
