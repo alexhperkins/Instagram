@@ -48,6 +48,22 @@ describe "pictures" do
   	end
 	end
 
+	 context "Submitting wrong information" do
+
+	 	before(:each) do
+	 		create_test_picture
+	 	end
+
+	 	it "The title field can not be empty" do
+  		
+  		visit '/'
+
+
+  	end
+	 end
+
+
+
 	context "Updating a picture" do
 
 		it "The user can update a picture" do
@@ -94,6 +110,22 @@ describe "pictures" do
 
 			expect(page).to have_content('Eagle')
 			expect(current_path).to match(/pictures\/\d/)
+		end
+
+		it "The user can return to the main page" do
+			create_test_picture
+
+			visit '/'
+
+			click_link 'Show Picture'
+
+			expect(current_path).to match(/pictures\/\d/)
+
+			expect(page).to have_link('Home')
+
+			click_link 'Home'
+
+			expect(current_path).to eq('/pictures')
 		end
 	end
 
