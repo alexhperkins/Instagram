@@ -1,3 +1,20 @@
-<p>No pictures yet</p>
+<% if @pictures.any? %>
+	
+	<% @pictures.each do | picture | %>
+
+		<section class="pic_box">
+			
+			<h1> <%= picture.title %> </h1>
+
+			<p>  <%= picture.description %> </p>
+
+		</section>
+	<% end %>
+
+<% else %>
+
+	<p>No pictures yet</p>
+
+<% end %>
 
 <%= link_to 'Add a picture', new_picture_path %>

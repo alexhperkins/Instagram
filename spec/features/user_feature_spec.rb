@@ -6,14 +6,36 @@ describe "pictures" do
 
   	it "should display a link to add a picture" do
   		
-  		visit '/pictures'
+  		visit '/'
 
   		expect(page).to have_content('No pictures yet')
   		expect(page).to have_link('Add a picture')	
   	end
+
+  	it "when a picture has been added" do
+  		
+			Picture.create(title: ' Eagle ', description:' My last project ')
+
+			visit '/'
+
+			expect(page).not_to have_content('No pictures yet')
+			expect(page).to have_content('Eagle')
+			expect(page).to have_content('My last project')
+			expect(page).to have_link('Add a picture')	
+  	end
   end
 
-  context "Adding a picture" do
+  xcontext "Adding a picture" do
+
+  	it "can add a picture" do
+	  	
+	  	visit('/')
+
+	  	click_link('Add a picture')
+
+	  	expect(current_path).to eq('/pictures/new')
+  		
+  	end
 
   end
 
