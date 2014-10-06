@@ -40,11 +40,11 @@
 
 						<section class="comment_box">
 							<ul>
-								<li> <%= comment.content %> <%= comment.rating %> </li>
+								<li> <%= "#{comment.content}" %> <%= "#{comment.rating}" %> </li>
 							</ul>
 						</section>
 					<% end %>
-
+						<span class="average_rating"> Average: <%= happy_face_rating(picture.average_rating) %> </span>
 				</section>
 			<% end %>
 
