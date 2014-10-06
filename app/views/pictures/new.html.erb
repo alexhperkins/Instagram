@@ -1,3 +1,15 @@
+<% if @picture.errors.any? %>
+  <div class="errors_explanation" >
+    <h2> <%= pluralize(@picture.errors.count, "error") %> prohibited this
+    picture from being saved: </h2>
+    <ul>
+        <% @picture.errors.full_messages.each do |message| %>
+            <li class="message"><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
 <%= form_for @picture do | form | %>
 
 <%= form.label      :title %>

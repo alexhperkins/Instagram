@@ -56,9 +56,14 @@ describe "pictures" do
 
 	 	it "The title field can not be empty" do
   		
-  		visit '/'
+  		visit '/pictures'
 
+  		click_link('Add a picture')
+      fill_in 'Title', with: ''
+      click_button 'Create Picture'
 
+      expect(page).not_to have_css 'h1', text: ' '
+      expect(page).to have_content('error')
   	end
 	 end
 
@@ -133,7 +138,6 @@ describe "pictures" do
 	end
 
 end
-
 
 
 

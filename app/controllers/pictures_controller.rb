@@ -16,7 +16,7 @@ class PicturesController < ApplicationController
 
 			redirect_to pictures_path
 		else
-			redirect_to new_picture_path
+			render 'new'
 		end
 	end
 
