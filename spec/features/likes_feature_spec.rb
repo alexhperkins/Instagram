@@ -11,7 +11,7 @@ describe "Liking a comment" do
   	
   	visit '/pictures'
 
-  	click_link('Like')
+  	click_link('Like it')
 
   	expect(page).to have_content('0 likes')
 	end

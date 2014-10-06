@@ -25,8 +25,8 @@
 						<li> 
 								<%= "#{comment.content}" %> <%= "#{comment.rating}" %> 
 
-								<%= link_to 'Likes', comment_likes_path(comment), class: 'like_comment' %>
-								<span class="likes_count"> <%= comment.likes.count %> likes </span>
+								<%= link_to 'Like it', comment_likes_path(comment), class: 'like_comment' %>
+								<span class="likes_count"> <%= comment.likes.count %>  </span> likes
 						</li>
 					</ul>
 				</section>
