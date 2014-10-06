@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :comments do
+    resources :likes
+  end
   # You can have the root of your site routed with "root"
   root 'pictures#index'
 
