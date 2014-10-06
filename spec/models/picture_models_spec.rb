@@ -10,4 +10,15 @@ RSpec.describe Picture, :type => :model do
 		expect(pic).not_to be_valid
 	end
 
+
+	it "Raise error if the description is empty" do
+
+		pic = Picture.new(description: '')
+
+		expect(pic).to have(1).error_on(:description)
+		expect(pic).not_to be_valid
+	end
+
+
+
 end
