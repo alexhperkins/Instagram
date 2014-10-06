@@ -1,0 +1,10 @@
+<%= form_for [@picture,@comment] do |form| %>
+
+<%= form.label      :content     %>
+<%= form.text_field :content     %>
+
+<%= form.label  :rating          %>
+<%= form.select :rating, (0..5)  %>
+
+<%= form.submit 'Leave comment'                 %>
+<%end%>

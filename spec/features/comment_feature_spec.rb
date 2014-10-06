@@ -6,7 +6,7 @@ describe "Comment" do
 		click_link 'Comment this'
 		fill_in 'Content', with: content
 		select  rating,        from: 'Rating'
-    click_button 'Leave Comment'
+    click_button 'Leave comment'
 	end
 
 	before(:each) do

@@ -34,7 +34,16 @@
 					
 					<%= link_to "Show Picture", picture_path(picture)            %>
 					
-					<%= link_to "Comment this", picture_path(picture)            %>
+					<%= link_to "Comment this", new_picture_comment_path(picture)%>
+
+					<% picture.comments.each do | comment | %>
+
+						<section class="comment_box">
+							<ul>
+								<li> <%= comment.content %> <%= comment.rating %> </li>
+							</ul>
+						</section>
+					<% end %>
 
 				</section>
 			<% end %>
