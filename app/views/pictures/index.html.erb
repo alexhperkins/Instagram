@@ -1,60 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Instagram</title>
-</head>
-<body>
-	
-	<div class="wrapper">
-	
-	<% if flash[:notice] %>
-		<div class="errors">
-			<ul>
-				<li class="message"> <%= notice %> </li>
-			</ul>
-		</div>
-	<% end %>
-		
-		<h1>Instagram</h1>
+<h1>Instagram</h1>
 
-		<% if @pictures.any? %>
+<% if @pictures.any? %>
+	
+	<% @pictures.each do | picture | %>
+
+		<section class="pic_box">
 			
-			<% @pictures.each do | picture | %>
+			<h1> <%= picture.title %> </h1>
 
-				<section class="pic_box">
-					
-					<h1> <%= picture.title %> </h1>
+			<p>  <%= picture.description %> </p>
 
-					<p>  <%= picture.description %> </p>
+			<%= link_to "Update", edit_picture_path(picture)     %>
 
-					<%= link_to "Update Picture", edit_picture_path(picture)     %>
+			<%= link_to "Delete", picture_path(picture), method: :delete %>
+			
+			<%= link_to "Show", picture_path(picture)            %>
+			
+			<%= link_to "Comment", new_picture_comment_path(picture)%>
 
-					<%= link_to "Delete", picture_path(picture), method: :delete %>
-					
-					<%= link_to "Show Picture", picture_path(picture)            %>
-					
-					<%= link_to "Comment this", new_picture_comment_path(picture)%>
+			<% picture.comments.each do | comment | %>
 
-					<% picture.comments.each do | comment | %>
+				<section class="comment_box">
+					<ul>
+						<li> 
+								<%= "#{comment.content}" %> <%= "#{comment.rating}" %> 
 
-						<section class="comment_box">
-							<ul>
-								<li> <%= "#{comment.content}" %> <%= "#{comment.rating}" %> </li>
-							</ul>
-						</section>
-					<% end %>
-						<span class="average_rating"> Average: <%= happy_face_rating(picture.average_rating) %> </span>
+								<%= link_to 'Likes', comment_likes_path(comment), class: 'like_comment' %>
+								<span class="likes_count"> <%= comment.likes.count %> likes </span>
+						</li>
+					</ul>
 				</section>
 			<% end %>
+				<span class="average_rating"> Average: <%= happy_face_rating(picture.average_rating) %> </span>
+		</section>
+	<% end %>
 
-		<% else %>
+<% else %>
 
-			<p>No pictures yet</p>
+	<p>No pictures yet</p>
 
-		<% end %>
+<% end %>
 
-		<%= link_to 'Add a picture', new_picture_path %>
-	</div>	
-</body>
-</html>
+<%= link_to 'Add a picture', new_picture_path %>
+
+

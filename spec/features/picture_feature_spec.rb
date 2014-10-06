@@ -76,7 +76,7 @@ describe "pictures" do
 
 			visit '/'
 
-			click_link('Update Picture')
+			click_link('Update')
 
 			fill_in 'Title',       with: 'Parrot'
 			fill_in 'Description', with: 'Just a project' 
@@ -111,7 +111,7 @@ describe "pictures" do
 
 			visit '/'
 
-			click_link 'Show Picture'
+			click_link 'Show'
 
 			expect(page).to have_content('Eagle')
 			expect(current_path).to match(/pictures\/\d/)
@@ -122,7 +122,7 @@ describe "pictures" do
 
 			visit '/'
 
-			click_link 'Show Picture'
+			click_link 'Show'
 
 			expect(current_path).to match(/pictures\/\d/)
 

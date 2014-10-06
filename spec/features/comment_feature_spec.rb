@@ -4,7 +4,7 @@ describe "Comment" do
 
 	def fill_in_review(content,rating)
 		visit '/pictures'
-		click_link 'Comment this'
+		click_link 'Comment'
 		fill_in 'Content', with: content
 		select  rating,        from: 'Rating'
     click_button 'Leave comment'
